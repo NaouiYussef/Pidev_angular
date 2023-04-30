@@ -34,18 +34,19 @@ export class SigninComponent implements OnInit {
         // Login successful, store access_token and refresh_token in localStorage
         localStorage.setItem('access_token', response.access_token);
         localStorage.setItem('refresh_token', response.refresh_token);
+       
         this.userService.getUserInfo().subscribe(
           (data) => {
             this.userInfo = data;
-            
+            localStorage.setItem('user_role', data.roles.name );
             if (data.roles.name === 'admin') {
               this.route.navigateByUrl('body')
             }
             if (data.roles.name === 'provider') {
-              this.route.navigateByUrl('provider')
+              this.route.navigateByUrl('body')
             }
             if (data.roles.name === 'consumer') {
-              this.route.navigateByUrl('consumer')
+              this.route.navigateByUrl('body')
             }
           },
           (error) => {

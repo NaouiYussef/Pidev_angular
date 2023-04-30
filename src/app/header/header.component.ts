@@ -1,28 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['../../assets/css/style.css']
 })
 export class HeaderComponent implements OnInit {
-token!:any
-  constructor(private route:Router) {}
+  token: any;
+  userRole: string | null;
+
+  constructor(private route: Router) {}
 
   ngOnInit(): void {
-   this.token= localStorage.getItem('access_token');
-   console.log(this.token)
+    this.token = localStorage.getItem('access_token');
+    this.userRole = localStorage.getItem('user_role');
+    console.log(this.token);
+    console.log(this.userRole);
   }
+
   isLoggedIn(): boolean {
-    return this.token;
+    return !!this.token;
   }
+
+  isAdmin(): boolean {
+    return this.userRole === 'admin';
+  }
+
   logout() {
-    // code to log the user out
-    localStorage.removeItem('access_token'); 
-    localStorage.removeItem('refresh_token'); // remove the user token from local storage
-    this.route.navigate(['/signin']); // navigate the user to the login page
-    this.token=false
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('refresh_token');
+    localStorage.removeItem('user_role');
+    this.route.navigate(['body']);
+    this.token = false;
+    this.userRole = null;
   }
 }
