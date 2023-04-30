@@ -56,7 +56,7 @@
 										<li><a href="cart.html">Cart</a></li>
 									</ul>
 								</li>
-								<li><a href="about.html" *ngIf="isAdmin();" >Back</a></li>
+								<li><a routerLink="/admin" *ngIf="isAdmin();"  >Back</a></li>
 								
 								<li><div *ngIf="isLoggedIn()" >
 									<a (click)="logout()"> <i class="bi bi-user" style="color: #ffffff;"> logout  </i></a>

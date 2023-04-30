@@ -104,5 +104,8 @@
       }
     }
   },
-  "defaultProject": "pidevapp"
+  "defaultProject": "pidevapp",
+  "cli": {
+    "analytics": false
+  }
 }

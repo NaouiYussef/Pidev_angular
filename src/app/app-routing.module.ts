@@ -7,16 +7,17 @@ import { UserComponent } from 'src/app/user/user.component';
 
 import { AppComponent } from './app.component';
 import { TemplateUserComponent}  from 'src/app/template-user/template-user.component'
+import { TemplateAdminComponent } from './template-admin/template-admin.component';
+import { BodyAdminComponent } from './body-admin/body-admin.component';
 
 const routes: Routes =  [  
 {  path:'admin',
-  component:AppComponent,
+  component:TemplateAdminComponent,
   children:[
     
-    {path: '', component:TemplateUserComponent},
-    {path: 'signup', component:SignupComponent},
-    {path: 'body', component:BodyUserComponent},
-    {path: 'admin/all', component:UserComponent},
+    {path: '', component:BodyAdminComponent},
+    {path: 'userlist', component:UserComponent},
+    
     
   ],data:{}
 

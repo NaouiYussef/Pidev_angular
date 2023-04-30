@@ -18,12 +18,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { DashboardBackComponent } from './dashboard-back/dashboard-back.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { TemplateUserComponent } from './template-user/template-user.component';
 import { BodyUserComponent } from './body-user/body-user.component';
+import { TemplateAdminComponent } from './template-admin/template-admin.component';
+import { BodyAdminComponent } from './body-admin/body-admin.component';
+import { FooterBackComponent } from './footer-back/footer-back.component';
+import { SidebarBackComponent } from './sidebar-back/sidebar-back.component';
+import { NavbarBackComponent } from './navbar-back/navbar-back.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,16 +37,22 @@ import { BodyUserComponent } from './body-user/body-user.component';
     SigninComponent,
     SignupComponent,
     DashboardBackComponent,
-    SidebarComponent,
+    
     NavbarComponent,
     FooterComponent,
     HeaderComponent,
     TemplateUserComponent,
-    BodyUserComponent
+    BodyUserComponent,
+    TemplateAdminComponent,
+    BodyAdminComponent,
+    FooterBackComponent,
+    SidebarBackComponent,
+    NavbarBackComponent
     
   
   ],
   imports: [
+    
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
