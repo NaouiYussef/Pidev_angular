@@ -20,8 +20,10 @@ import { SignupComponent } from './signup/signup.component';
 import { DashboardBackComponent } from './dashboard-back/dashboard-back.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-
+import { TemplateUserComponent } from './template-user/template-user.component';
+import { BodyUserComponent } from './body-user/body-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,10 @@ import { FooterComponent } from './footer/footer.component';
     DashboardBackComponent,
     SidebarComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    HeaderComponent,
+    TemplateUserComponent,
+    BodyUserComponent
     
   
   ],

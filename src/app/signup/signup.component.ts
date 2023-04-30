@@ -20,7 +20,7 @@ export function matchPasswordValidator(g: FormGroup) {
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['../../assets/css/style.css']
+  styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
   user: User = new User();

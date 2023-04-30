@@ -14,7 +14,7 @@ export class RoleService {
     constructor(private http: HttpClient) { }
 
     public getRoles(): Observable<Role[]> {
-        const url = `${this.apiServerUrl}allrole`; // remove the extra slash
+        const url = `${this.apiServerUrl}admin/allrole`; // remove the extra slash
         return this.http.get<Role[]>(url);
     }
     public getRoleById(id: number) {
@@ -29,6 +29,6 @@ export class RoleService {
 
 
     public deleteRoles(roleId: number): Observable<void> {
-        return this.http.delete<void>(`${this.apiServerUrl}/role/delete/${roleId}`);
+        return this.http.delete<void>(`${this.apiServerUrl}admin/deleterole/${roleId}`);
     }
 }

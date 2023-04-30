@@ -35,7 +35,7 @@ export class UserComponent implements OnInit {
   // ...
 
   public getUsers(): void {
-    const url = `${this.apiServerUrl}/all`; // construct the URL
+    const url = `${this.apiServerUrl}/admin/all`; // construct the URL
     this.userService.getUsers(url).subscribe(
       (response: User[]) => {
         this.users = response;

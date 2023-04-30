@@ -39,7 +39,7 @@ export class SigninComponent implements OnInit {
             this.userInfo = data;
             
             if (data.roles.name === 'admin') {
-              this.route.navigateByUrl('/all')
+              this.route.navigateByUrl('body')
             }
             if (data.roles.name === 'provider') {
               this.route.navigateByUrl('provider')
