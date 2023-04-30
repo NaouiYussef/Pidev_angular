@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms/forms';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.css']
+  styleUrls: ['../signup/signup.component.css']
 })
 export class SigninComponent implements OnInit {
   user: User = new User();

@@ -14,7 +14,7 @@ const routes: Routes =  [
   children:[
     
     {path: '', component:TemplateUserComponent},
-    {path: 'sign', component:SignupComponent},
+    {path: 'signup', component:SignupComponent},
     {path: 'body', component:BodyUserComponent},
     {path: 'admin/all', component:UserComponent},
     
@@ -25,7 +25,7 @@ const routes: Routes =  [
   component: TemplateUserComponent,
   children:[
     {path: '', component:BodyUserComponent},
-    {path: 'sign', component:SignupComponent},
+   
     {path: 'body', component:BodyUserComponent},
 {path:'signin',component:SigninComponent},
 {path:'signup',component:SignupComponent},
