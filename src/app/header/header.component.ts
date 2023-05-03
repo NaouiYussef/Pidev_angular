@@ -13,8 +13,8 @@ export class HeaderComponent implements OnInit {
   constructor(private route: Router) {}
 
   ngOnInit(): void {
-    this.token = localStorage.getItem('access_token');
-    this.userRole = localStorage.getItem('user_role');
+    this.token = sessionStorage.getItem('access_token');
+    this.userRole = sessionStorage.getItem('user_role');
     console.log(this.token);
     console.log(this.userRole);
   }
@@ -28,9 +28,9 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('refresh_token');
-    localStorage.removeItem('user_role');
+    sessionStorage.removeItem('access_token');
+    sessionStorage.removeItem('refresh_token');
+    sessionStorage.removeItem('user_role');
     this.route.navigate(['body']);
     this.token = false;
     this.userRole = null;

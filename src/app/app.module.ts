@@ -28,6 +28,23 @@ import { BodyAdminComponent } from './body-admin/body-admin.component';
 import { FooterBackComponent } from './footer-back/footer-back.component';
 import { SidebarBackComponent } from './sidebar-back/sidebar-back.component';
 import { NavbarBackComponent } from './navbar-back/navbar-back.component';
+import {CategoryComponent} from "./category/category/category.component";
+import {CategoryFormComponent} from "./category/category-form/category-form.component";
+import {CategoryUpdateComponent} from "./category/category-update/category-update.component";
+import {ProductComponent} from "./Product/product/product.component";
+import {ProductFormComponent} from "./Product/product-form/product-form.component";
+import {ProductUpdateComponent} from "./Product/product-update/product-update.component";
+import {ProductDetailsComponent} from "./product-details/product-details.component";
+
+
+import { PostComponent } from './post/view-post/post.component';
+import { CreatePostComponent } from './post/create-post/create-post.component';
+import { EditPostComponent } from './post/edit-post/edit-post.component';
+import { ViewSubredditComponent } from './subreddit/view-subreddit/view-subreddit.component';
+import { CreateSubredditComponent } from './subreddit/create-subreddit/create-subreddit.component';
+import { UpdateSubredditComponent } from './subreddit/update-subreddit/update-subreddit.component';
+import { CreateCommentComponent } from './comment/create-comment/create-comment.component';
+import { ViewCommentComponent } from './comment/view-comment/view-comment.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +54,7 @@ import { NavbarBackComponent } from './navbar-back/navbar-back.component';
     SigninComponent,
     SignupComponent,
     DashboardBackComponent,
-    
+
     NavbarComponent,
     FooterComponent,
     HeaderComponent,
@@ -47,12 +64,25 @@ import { NavbarBackComponent } from './navbar-back/navbar-back.component';
     BodyAdminComponent,
     FooterBackComponent,
     SidebarBackComponent,
-    NavbarBackComponent
-    
-  
+    NavbarBackComponent,
+    CategoryComponent,
+    CategoryFormComponent,
+    CategoryUpdateComponent,
+    ProductComponent,
+    ProductFormComponent,
+    ProductUpdateComponent,
+    ProductDetailsComponent,
+    PostComponent,
+    CreatePostComponent,
+    EditPostComponent,
+    ViewSubredditComponent,
+    CreateSubredditComponent,
+    UpdateSubredditComponent,
+    CreateCommentComponent,
+    ViewCommentComponent,
   ],
   imports: [
-    
+
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

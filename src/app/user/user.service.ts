@@ -17,7 +17,7 @@ export class UserService {
     private httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        Authorization: 'Bearer' + ' ' + localStorage.getItem('access_token')
+        Authorization: 'Bearer' + ' ' + sessionStorage.getItem('access_token')
       })
   
     };
@@ -58,10 +58,10 @@ export class UserService {
     }
     
     clear() {
-      localStorage.clear()
+      sessionStorage.clear()
     }
     getToken(): any {
-      const token= localStorage.getItem('access_token');
+      const token= sessionStorage.getItem('access_token');
     
       return token
     }
@@ -114,7 +114,7 @@ export class UserService {
   
   
     getUserInfo(): Observable<User> {
-      const headers = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('access_token')}`);
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${sessionStorage.getItem('access_token')}`);
       return this.http.get<User>('http://localhost:8080/session', { headers });
     }
     getUserbyemail(email: string) {

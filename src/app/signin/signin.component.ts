@@ -31,19 +31,19 @@ export class SigninComponent implements OnInit {
     this.userService.login(this.user.mail, this.user.password).subscribe(
       (response: any) => {
         console.log(response)
-        // Login successful, store access_token and refresh_token in localStorage
-        localStorage.setItem('access_token', response.access_token);
-        localStorage.setItem('refresh_token', response.refresh_token);
+        // Login successful, store access_token and refresh_token in sessionStorage
+        sessionStorage.setItem('access_token', response.access_token);
+        sessionStorage.setItem('refresh_token', response.refresh_token);
        
         this.userService.getUserInfo().subscribe(
           (data) => {
             this.userInfo = data;
-            localStorage.setItem('user_role', data.roles.name );
+            sessionStorage.setItem('user_role', data.roles.name );
             if (data.roles.name === 'admin') {
               this.route.navigateByUrl('body')
             }
             if (data.roles.name === 'provider') {
-              this.route.navigateByUrl('body')
+              this.route.navigateByUrl('body') 
             }
             if (data.roles.name === 'consumer') {
               this.route.navigateByUrl('body')
