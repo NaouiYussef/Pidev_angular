@@ -45,6 +45,10 @@ import { CreateSubredditComponent } from './subreddit/create-subreddit/create-su
 import { UpdateSubredditComponent } from './subreddit/update-subreddit/update-subreddit.component';
 import { CreateCommentComponent } from './comment/create-comment/create-comment.component';
 import { ViewCommentComponent } from './comment/view-comment/view-comment.component';
+import { ProductFrontComponent } from './Product/product-front/product-front.component';
+import { ProductDetailsFrontComponent } from './product-details/product-details-front/product-details-front.component';
+import { ChangemdpComponent } from './changemdp/changemdp.component';
+import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +84,10 @@ import { ViewCommentComponent } from './comment/view-comment/view-comment.compon
     UpdateSubredditComponent,
     CreateCommentComponent,
     ViewCommentComponent,
+    ProductFrontComponent,
+    ProductDetailsFrontComponent,
+    ChangemdpComponent,
+    UpdatepasswordComponent,
   ],
   imports: [
 

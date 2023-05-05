@@ -28,34 +28,14 @@
 
 
 								</li>
-								<li><a href="about.html">About</a></li>
-								<li><a href="#">Pages</a>
-									<ul class="sub-menu">
-										<li><a href="404.html">404 page</a></li>
-										<li><a href="about.html">About</a></li>
-										<li><a href="cart.html">Cart</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
-										<li><a href="contact.html">Contact</a></li>
-										<li><a href="news.html">News</a></li>
-										<li><a href="shop.html">Shop</a></li>
-									</ul>
-								</li>
-								<li><a href="news.html">News</a>
-									<ul class="sub-menu">
-										<li><a href="news.html">News</a></li>
-										<li><a href="single-news.html">Single News</a></li>
-									</ul>
-								</li>
 
-								<li><a href="contact.html">Contact</a></li>
-								<li><a href="shop.html">Shop</a>
-									<ul class="sub-menu">
-										<li><a href="shop.html">Shop</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
-										<li><a href="single-product.html">Single Product</a></li>
-										<li><a href="cart.html">Cart</a></li>
-									</ul>
-								</li>
+                <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} bi bi-user">
+
+                  <a [routerLink]="[menuItem.path]">{{menuItem.title}}</a>
+
+
+                </li>
+
 								<li><a routerLink="/admin" *ngIf="isAdmin();"  >Back</a></li>
 
 								<li><div *ngIf="isLoggedIn()" >
@@ -76,9 +56,10 @@
 								<li>
 									<div class="header-icons">
 										<div *ngIf="isLoggedIn()">
-											<a class="nav-item nav-link" routerLink="" ><i class="bi bi-people" ></i></a></div>
+											<a class="nav-item nav-link" routerLink="" ><i class="bi bi-people" ></i></a>
 										<a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
-										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a></div>
+
 									</div>
 								</li>
 

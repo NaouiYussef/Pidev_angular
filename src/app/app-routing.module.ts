@@ -26,6 +26,10 @@ import { CreateSubredditComponent } from './subreddit/create-subreddit/create-su
 import { UpdateSubredditComponent } from './subreddit/update-subreddit/update-subreddit.component';
 import { ViewCommentComponent } from './comment/view-comment/view-comment.component';
 import { CreateCommentComponent } from './comment/create-comment/create-comment.component';
+import {ProductFrontComponent} from "./Product/product-front/product-front.component";
+import {ProductDetailsFrontComponent} from "./product-details/product-details-front/product-details-front.component";
+import { ChangemdpComponent } from './changemdp/changemdp.component';
+import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
 
 const routes: Routes =  [
 {  path:'admin',
@@ -63,7 +67,12 @@ const routes: Routes =  [
     {path: 'body', component:BodyUserComponent},
 
 {path:'signin',component:SigninComponent},
+{path:'forgetPAssword',component:ChangemdpComponent},
 {path:'signup',component:SignupComponent},
+{ path: 'updatepPassword/:token/:email', component: UpdatepasswordComponent },
+    { path: 'app-product-front', component: ProductFrontComponent},
+    { path: 'app-product-details-front', component: ProductDetailsFrontComponent},
+
 
 
   ]

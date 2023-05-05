@@ -31,3 +31,7 @@ button:hover {
     margin-bottom: 10px;
   }
 }
+
+button-rmv{
+  background-color: #ff0000;
+}

@@ -72,6 +72,7 @@ export class ProductComponent implements OnInit {
     this.router.navigate(['/admin/details']);
 
   }
+
   public searchProds(key: string): void {
     console.log(key);
     const results: Product[] = [];

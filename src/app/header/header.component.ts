@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+declare const $: any;
+declare interface RouteInfo {
+  path: string;
+  title: string;
+  class: string;
+}
+export const ROUTES: RouteInfo[] = [
+  { path: '/app-product-front', title: 'Services', class: '' },
+];
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,6 +17,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   token: any;
   userRole: string | null;
+  menuItems!: any[];
 
   constructor(private route: Router) {}
 
@@ -17,6 +26,8 @@ export class HeaderComponent implements OnInit {
     this.userRole = sessionStorage.getItem('user_role');
     console.log(this.token);
     console.log(this.userRole);
+    this.menuItems = ROUTES.filter(menuItem => menuItem);
+    console.log(this.menuItems)
   }
 
   isLoggedIn(): boolean {

@@ -110,8 +110,7 @@ export class UserService {
       return this.http.get(" http://localhost:8080/email/reset/" + token + "/" + email + "/" + password)
     }
   
-  
-  
+   
   
     getUserInfo(): Observable<User> {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${sessionStorage.getItem('access_token')}`);

@@ -86,5 +86,11 @@ export class ProductFormComponent {
   addFieldCount() {
     this.fieldsetArray.push({ attr: new Attribute(), detail: new ProductDetails() });
   }
+  removeFieldCount() {
+    this.fieldsetArray.pop();
+  }
+  removeFieldAtIndex(index: number) {
+    this.fieldsetArray.splice(index, 1);
+  }
 
 }

@@ -30,16 +30,17 @@
       </option>
     </select>
     <br>
-    <fieldset class="fieldsett" *ngFor="let i of fieldsetArray">
-      <h4>Add Service Attribute:</h4>
-      <input [(ngModel)]="i.attr.attribut" name="newProductDAttr" placeholder="Attribute"
-             class="inputt">
-      <br>
-      <h4>Add Service Value:</h4>
-      <input [(ngModel)]="i.detail.value" name="newProductDValue" placeholder="Value"
-             class="inputt">
-      <br>
-    </fieldset>
+    <ng-container *ngFor="let i of fieldsetArray; let index = index;">
+      <fieldset class="fieldsett">
+        <h4>Add Service Attribute:</h4>
+        <input [(ngModel)]="i.attr.attribut" name="newProductDAttr" placeholder="Attribute" class="inputt">
+        <br>
+        <h4>Add Service Value:</h4>
+        <input [(ngModel)]="i.detail.value" name="newProductDValue" placeholder="Value" class="inputt">
+        <br>
+        <button (click)="removeFieldAtIndex(index)">X</button>
+      </fieldset>
+    </ng-container>
     <button class="btn btn-primary" type="button" (click)="addFieldCount()">Add</button>
 
   </div>
