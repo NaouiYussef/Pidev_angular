@@ -1,0 +1,182 @@
+<app-header></app-header>
+<!-- hero area -->
+<div class="hero-area hero-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 offset-lg-2 text-center">
+        <div class="hero-text">
+          <div class="hero-text-tablecell">
+            <p class="subtitle">PIdev 4ARCTIC5</p>
+            <div class="hero-btns">
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <h1>PI Dev</h1>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end hero area -->
+
+<!-- features list section -->
+<div class="list-section pt-80 pb-80">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+        <div class="list-box d-flex align-items-center">
+          <div class="list-icon">
+            <i class="fas fa-shipping-fast"></i>
+          </div>
+          <div class="content">
+            <h3>Get Fast</h3>
+            <p>Buy now Get now!</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+        <div class="list-box d-flex align-items-center">
+          <div class="list-icon">
+            <i class="fas fa-phone-volume"></i>
+          </div>
+          <div class="content">
+            <h3>24/7 Support</h3>
+            <p>Get support all day</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="list-box d-flex justify-content-start align-items-center">
+          <div class="list-icon">
+            <i class="fas fa-sync"></i>
+          </div>
+          <div class="content">
+            <h3>Refund</h3>
+            <p>Get refund within 3 days!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- end features list section -->
+
+<!-- product section -->
+<div class="product-section mt-150 mb-150">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2 text-center">
+        <div class="section-title">
+          <h1><span class="orange-text">Our</span> Services</h1>
+<!--          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>-->
+          <hr>
+        </div>
+      </div>
+    </div>
+    <h2 class="centered-heading">Search services</h2>
+    <form>
+      <input type="search" (ngModelChange)="searchProds(key.value)" #key="ngModel" ngModel
+             name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search prod..." required>
+    </form>
+    <hr>
+    <h2 class="centered-heading">Filter services by category</h2>
+ <div class="d-flex flex-row justify-content-center align-items-center">
+
+   <div *ngFor="let category of categories">
+     <button class="categoryybutton" (click)="filterByCategory(category.categoryName.toString())">
+       {{ category.categoryName }}
+     </button>
+   </div>
+   <div>
+<!--     <button class="btn-danger" (click)="resetFilters()"><i class="fas fa-sync-alt"></i> Refresh</button>-->
+
+     <button class="refbutton" (click)="resetFilters()"><i class="fas fa-sync-alt"></i></button>
+   </div>
+ </div>
+
+
+    <div class="row">
+
+        <!-- Product item HTML goes here -->
+
+      <div class="row">
+        <div *ngFor="let product of products" class="col-lg-4 col-md-6">
+          <div class="single-product-item text-center">
+            <hr>
+            <h2 class="orange-text">{{ product.categoryp.categoryName}}</h2>
+            <hr>
+
+            <h3><span class="grey-text">Service name: </span>{{ product.productName}}</h3>
+            <h3><span class="grey-text">Region  : </span>{{ product.region}}</h3>
+            <h4><span class="grey-text">Per hour</span>: {{ product.prix}}DT</h4>
+            <button class="btn" (click)="sendDatafront(product.id)">Show Details</button>
+            <br>
+            <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+</div>
+<!--<ul class="pagination-container">-->
+<!--  <li class="page-item" [class.disabled]="currentPagef == 1">-->
+<!--    <a class="page-link" (click)="currentPagef = 1">First</a>-->
+<!--  </li>-->
+<!--  <li class="page-item" [class.disabled]="currentPagef == 1">-->
+<!--    <a class="page-link" (click)="currentPagef = currentPagef - 1">Previous</a>-->
+<!--  </li>-->
+<!--  <li class="page-item" [class.disabled]="currentPagef == totalPagesf()">-->
+<!--    <a class="page-link" (click)="currentPagef = currentPagef + 1">Next</a>-->
+<!--  </li>-->
+<!--  <li class="page-item" [class.disabled]="currentPagef == totalPagesf()">-->
+<!--    <a class="page-link" (click)="currentPagef = totalPagesf()">Last</a>-->
+<!--  </li>-->
+<!--</ul>-->
+<!-- end product section -->
+
+<!-- cart banner section -->
+<!-- end cart banner section -->
+
+<!-- testimonail-section -->
+<!-- end testimonail-section -->
+
+<!-- advertisement section -->
+<!-- end advertisement section -->
+
+<!-- shop banner -->
+<!-- end shop banner -->
+
+<!-- latest news -->
+<!-- end latest news -->
+
+<!-- logo carousel -->
+<!-- end logo carousel -->
