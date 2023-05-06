@@ -1,0 +1,24 @@
+
+                <form class="form" action="##" method="post" id="registrationForm">
+                <div class="vod">
+                <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+                <div class="form__group">
+                  <input type="text" class="form__input" id="name" placeholder="Username" value="{{userInfo.username}}" name="firstName" #username="ngModel"
+                  [(ngModel)]="userInfo.username" required="" />
+                  <label for="name" class="form__label">Username</label>
+
+                </div>
+            
+                <div class="form__group">
+                    <input type="text" class="form__input" id="name" placeholder="Email" value="{{userInfo.mail}}" name="email" #mail="ngModel"
+                    [(ngModel)]="userInfo.mail" required="" />
+                    <label for="name" class="form__label">Email</label>
+  
+                  </div>
+                  <div class="form__group">
+                    <button class="btn btn-lg btn-primary" class="btn" (click)="update()" type="submit" routerLink=""><i
+                            ></i> Save</button>
+                </div>
+   
+            </div>
+                </form>

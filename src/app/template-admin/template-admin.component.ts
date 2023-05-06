@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-template-admin',
   templateUrl: './template-admin.component.html',
@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplateAdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
+    if(sessionStorage.getItem('user_role')!='admin')
+    this.route.navigateByUrl('body')}
   }
 
-}
+

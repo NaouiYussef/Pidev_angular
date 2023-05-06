@@ -59,7 +59,7 @@
         </div>
     Contact End -->
     <div class='bold-line'></div>
-<div class='container'>
+<div class='container' style="background: linear-gradient(red,#091E3E);">
   <div class='window'>
     <div class='overlay'></div>
     <div class='content'>
@@ -89,20 +89,24 @@
                 </div>
             </div>
             
-            <div class="col-12">
-                <button class='ghost-round full-width' type="submit" [disabled]="myForm.invalid" > Sign in </button>
-               
-                
+            <div class="col-12" *ngIf="user.mail && user.password">
+                <button class='ghost-round full-width' type="submit"><a routerLink="/body">Sign in</a></button>
             </div>
         </div>
     </form>
         <div class="signup">
-          <span class="signup">Don't have an account?
+          <span class="signup" style="color: black;">Don't have an account?
            <label for="check" > <a routerLink="/signup">Signup</a> </label>
-           <label for="check">forget Password  <a routerLink="/forgetPAssword">Click here</a></label>
+           <br>
           </span>
+          <span class="signup" style="color: black;">Forgot Password?
+          <label for="check">  <a routerLink="/forgetPAssword">Click here</a></label>
+        </span>
         </div>
         </div>
     </div>
+  </div>
+</div>
+
      
  

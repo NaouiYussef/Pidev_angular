@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { User } from '../user/user';
 import { UserService } from '../user/user.service';
 import { NgForm } from '@angular/forms';
@@ -15,6 +15,9 @@ export class SigninComponent implements OnInit {
   constructor(private userService: UserService, private route: Router) { }
   role: string = ''
   ngOnInit(): void {
+
+    if (sessionStorage.getItem('access_token') !== null && sessionStorage.getItem('access_token') !== undefined) {
+      this.route.navigateByUrl('body')}
     this.userService.getUserInfo().subscribe(
       (data) => {
         this.userInfo = data;

@@ -22,7 +22,7 @@ export class ChangemdpComponent implements OnInit {
       
         this.u.sendEmailpassword(this.mail, this.user).subscribe(
         )
-        this.route.navigateByUrl("/msg")
+        this.route.navigateByUrl("/redirection")
       
       
       

@@ -30,13 +30,17 @@ import {ProductFrontComponent} from "./Product/product-front/product-front.compo
 import {ProductDetailsFrontComponent} from "./product-details/product-details-front/product-details-front.component";
 import { ChangemdpComponent } from './changemdp/changemdp.component';
 import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
-
+import { UpdateprofilComponent } from './updateprofil/updateprofil.component';
+import { RedirectionComponent } from './redirection/redirection.component';
+import { ViewRolesComponent } from './role/view-roles/view-roles.component';
+import { RoleComponent } from './role/role.component';
 const routes: Routes =  [
 {  path:'admin',
   component:TemplateAdminComponent,
   children:[
 
     {path: '', component:BodyAdminComponent},
+    
     {path: 'userlist', component:UserComponent},
     {path: 'category', component:CategoryComponent},
     { path: 'new-category', component: CategoryFormComponent },
@@ -54,7 +58,8 @@ const routes: Routes =  [
     { path: 'update-subreddit/:id', component: UpdateSubredditComponent},
     { path: 'view-comment', component:ViewCommentComponent},
     { path: 'create-comment', component: CreateCommentComponent},
-
+    { path: 'rolelist', component:ViewRolesComponent},
+    { path: 'createRole', component:RoleComponent}
 
   ],data:{}
 
@@ -65,13 +70,14 @@ const routes: Routes =  [
     {path: '', component:BodyUserComponent},
 
     {path: 'body', component:BodyUserComponent},
-
+    {path: 'redirection', component:RedirectionComponent},
 {path:'signin',component:SigninComponent},
 {path:'forgetPAssword',component:ChangemdpComponent},
 {path:'signup',component:SignupComponent},
 { path: 'updatepPassword/:token/:email', component: UpdatepasswordComponent },
     { path: 'app-product-front', component: ProductFrontComponent},
     { path: 'app-product-details-front', component: ProductDetailsFrontComponent},
+    { path: 'update', component: UpdateprofilComponent}
 
 
 

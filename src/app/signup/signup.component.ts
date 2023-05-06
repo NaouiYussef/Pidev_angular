@@ -6,6 +6,9 @@ import { UserService } from '../user/user.service';
 import { Role } from '../role/role';
 import { RoleService } from '../role/role.service';
 import { HttpErrorResponse } from '@angular/common/http';
+
+import { ReCaptchaV3Service } from 'ng-recaptcha';
+
 export function matchPasswordValidator(g: FormGroup) {
   const password = g.get('password')?.value;
   const verifpassword = g.get('verifpassword')?.value;
@@ -23,11 +26,12 @@ export function matchPasswordValidator(g: FormGroup) {
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  
   user: User = new User();
   passwordForm: FormGroup;
   roles: Role[] = [];
   selectedRole: Role;
-
+  formcaptcha:FormGroup;
   constructor(
     private userService: UserService,
     private route: Router,
@@ -42,12 +46,25 @@ export class SignupComponent implements OnInit {
       },
       { validator: matchPasswordValidator }
     );
+    this.formcaptcha = this.fb.group({
+      recaptcha: ['', Validators.required]
+    })
+    
   }
 
   ngOnInit(): void {
+    if (sessionStorage.getItem('access_token') !== null && sessionStorage.getItem('access_token') !== undefined) {
+      this.route.navigateByUrl('body')}
     this.getRoles();
+    localStorage.removeItem('_grecaptcha')
   }
-
+  captchaResponse!: string;
+  
+  resolved(captchaResponse: string) {
+    console.log(`Resolved captcha with response ${captchaResponse}`);
+    // Do something with the captchaResponse, such as sending it to your server
+  }
+  msg:string=''
   getRoles(): void {
     this.roleService.getRoles().subscribe(
       (response: Role[]) => {
@@ -70,7 +87,24 @@ export class SignupComponent implements OnInit {
       roles: this.selectedRole,
       roleName: "Default"
     };
-    this.userService.addUsers(this.user).subscribe();
-    this.route.navigateByUrl('/signin');
+    if (localStorage.getItem('_grecaptcha')) {
+      this.userService.addUsers(this.user).subscribe(
+        (response) => {
+          if (response === false) {
+            // Show a message
+            this.msg = "Le mail existe deja";
+          } else {
+            // Redirect to the sign in page
+            this.route.navigateByUrl('/signin');
+          }
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    } else {
+      this.msg = "check the captcha ";
+    }
   }
+
 }

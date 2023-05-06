@@ -16,6 +16,7 @@ declare var $: any;
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+  errorMessage: string = '';
   public editEmployee: User;
   public deleteEmployee: User;
 
@@ -70,19 +71,26 @@ export class UserComponent implements OnInit {
       verifPassword: "",
       roles: role1,
       roleName: "Default"
-      //roles: this.roles.find(roles => roles.id === addForm.value.role)
-
     };
-    //console.log("id : ", this.selectedRoleId, "/ role: ", this.roleService.getRoleById(this.selectedRoleId) );
-    //console.log(this.my_role);
-    this.userService.addUsers(user).subscribe(newUser => {
-      this.users.push(newUser);
-      $('#addEmployeeModal').modal('hide');
-      addForm.reset();
-    });
-    //console.log(this.my_role);
+  
+    this.userService.addUsers(user).subscribe(
+      (response) => {
+        if (response === false) {
+          // Show a message
+          this.errorMessage = "Le mail existe deja";
+        } else {
+          // Redirect to the sign in page
+          this.errorMessage = "Utilisateur ajouté avec succés";
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
 
+    
   }
+  
 
   public onUpdateEmloyee(employee: User): void {
     const role2: Role = {

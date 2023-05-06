@@ -15,6 +15,7 @@ export class RoleService {
 
     public getRoles(): Observable<Role[]> {
         const url = `${this.apiServerUrl}user/allrole`; // remove the extra slash
+        console.log("aaaa" ,url);
         return this.http.get<Role[]>(url);
     }
     public getRoleById(id: number) {
@@ -25,7 +26,11 @@ export class RoleService {
           })
         );
       }
-   
+      
+      addRole(role: Role): Observable<void> {
+        console.log("rooooooole", role)
+        return this.http.post<void>(`${this.apiServerUrl}admin/ajouterrole`, role)
+      }
 
 
     public deleteRoles(roleId: number): Observable<void> {

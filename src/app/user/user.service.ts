@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError, map, throwError } from 'rxjs';
 import { User } from './user';
 import { environment } from '../../environments/environment';
 import { Role } from '../role/role';
@@ -66,18 +66,28 @@ export class UserService {
       return token
     }
    
-    
+    public checkEmailExists(email: String): Observable<User[]> {
+      console.log("email", email);
+
+      return this.http.get<User[]>('http://localhost:8080/admin/all');
+  }
 
     public getUsers(url: string): Observable<User[]> {
         return this.http.get<User[]>(url);
     }
 
-    public addUsers(user: User): Observable<User> {
-         // Extract the role id
-         console.log("service" ,user);
-        return this.http.post<User>(`${this.apiServerUrl}user/add`,user);
-        
-      }
+    public addUsers(user: User): Observable<boolean> {
+      console.log("service", user);
+      return this.http.post<boolean>('http://localhost:8080/user/add', user).pipe(
+        catchError((error: any) => {
+          console.log("hihihi", error);
+          return throwError(error);
+        })
+      );
+    }
+    
+  
+    
       
 
       public updateUsers(user: User): Observable<User> {

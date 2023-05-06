@@ -35,7 +35,7 @@ import {ProductComponent} from "./Product/product/product.component";
 import {ProductFormComponent} from "./Product/product-form/product-form.component";
 import {ProductUpdateComponent} from "./Product/product-update/product-update.component";
 import {ProductDetailsComponent} from "./product-details/product-details.component";
-
+import { RecaptchaModule } from "ng-recaptcha";
 
 import { PostComponent } from './post/view-post/post.component';
 import { CreatePostComponent } from './post/create-post/create-post.component';
@@ -49,16 +49,20 @@ import { ProductFrontComponent } from './Product/product-front/product-front.com
 import { ProductDetailsFrontComponent } from './product-details/product-details-front/product-details-front.component';
 import { ChangemdpComponent } from './changemdp/changemdp.component';
 import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
+import { UpdateprofilComponent } from './updateprofil/updateprofil.component';
+import { RedirectionComponent } from './redirection/redirection.component';
+import { ViewRolesComponent } from './role/view-roles/view-roles.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    
     UserComponent,
     RoleComponent,
     SigninComponent,
     SignupComponent,
     DashboardBackComponent,
-
+    
     NavbarComponent,
     FooterComponent,
     HeaderComponent,
@@ -88,13 +92,18 @@ import { UpdatepasswordComponent } from './updatepassword/updatepassword.compone
     ProductDetailsFrontComponent,
     ChangemdpComponent,
     UpdatepasswordComponent,
+    
+    UpdateprofilComponent,
+         RedirectionComponent,
+         ViewRolesComponent,
   ],
   imports: [
-
+    
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    RecaptchaModule,
     MatInputModule,
     MatButtonModule,
     MatDialogModule,

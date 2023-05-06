@@ -13,6 +13,7 @@ export const ROUTES: RouteInfo[] = [
   { path: '/admin/view-subreddit', title: 'Subreddits',  class: '' },
   { path: '/admin/post', title: 'Posts',  class: '' },
   { path: '/admin/view-comment', title: 'Comments',  class: '' },
+  { path: '/admin/rolelist', title: 'Role List',  class: '' },
 
 ];
 @Component({
