@@ -45,3 +45,4 @@ export class RoleComponent implements OnInit {
     this.router.navigateByUrl('admin/rolelist');
   }
 }
+

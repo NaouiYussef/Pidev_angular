@@ -17,6 +17,8 @@ import {ProductUpdateComponent} from "./Product/product-update/product-update.co
 import {ProductFormComponent} from "./Product/product-form/product-form.component";
 import {ProductComponent} from "./Product/product/product.component";
 
+import { CartComponent } from './cart/cart.component';
+
 
 import { PostComponent } from './post/view-post/post.component';
 import { CreatePostComponent } from './post/create-post/create-post.component';
@@ -34,13 +36,14 @@ import { UpdateprofilComponent } from './updateprofil/updateprofil.component';
 import { RedirectionComponent } from './redirection/redirection.component';
 import { ViewRolesComponent } from './role/view-roles/view-roles.component';
 import { RoleComponent } from './role/role.component';
+import {CommandeComponent} from "./commande/commande/commande.component";
 const routes: Routes =  [
 {  path:'admin',
   component:TemplateAdminComponent,
   children:[
 
     {path: '', component:BodyAdminComponent},
-    
+
     {path: 'userlist', component:UserComponent},
     {path: 'category', component:CategoryComponent},
     { path: 'new-category', component: CategoryFormComponent },
@@ -49,7 +52,7 @@ const routes: Routes =  [
     { path: 'new-product', component: ProductFormComponent },
     { path: 'update-product', component: ProductUpdateComponent },
     { path: 'details', component: ProductDetailsComponent },
-
+    { path: 'app-commande/productsoflist/:commande_id', component: CartComponent},
     { path: 'post', component: PostComponent },
     { path: 'create-post', component: CreatePostComponent},
     { path: 'edit-post/:id', component: EditPostComponent},
@@ -59,7 +62,8 @@ const routes: Routes =  [
     { path: 'view-comment', component:ViewCommentComponent},
     { path: 'create-comment', component: CreateCommentComponent},
     { path: 'rolelist', component:ViewRolesComponent},
-    { path: 'createRole', component:RoleComponent}
+    { path: 'createRole', component:RoleComponent},
+    { path: 'app-commande', component:CommandeComponent}
 
   ],data:{}
 

@@ -52,6 +52,8 @@ import { UpdatepasswordComponent } from './updatepassword/updatepassword.compone
 import { UpdateprofilComponent } from './updateprofil/updateprofil.component';
 import { RedirectionComponent } from './redirection/redirection.component';
 import { ViewRolesComponent } from './role/view-roles/view-roles.component';
+import { CommandeComponent } from './commande/commande/commande.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -96,6 +98,8 @@ import { ViewRolesComponent } from './role/view-roles/view-roles.component';
     UpdateprofilComponent,
          RedirectionComponent,
          ViewRolesComponent,
+         CommandeComponent,
+         CartComponent,
   ],
   imports: [
     

@@ -3,7 +3,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="index3.html" class="brand-link">
-    <span class="brand-text font-weight-light">AdminLTE 3</span>
+    <img width="60" height="40" src="assets/img/cloudtech.png" alt="">
   </a>
 
   <!-- Sidebar -->
@@ -35,7 +35,7 @@
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
         <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
-          
+
           <a class="nav-link btn btn-outline-light btn-light" [routerLink]="[menuItem.path]">
             <p>{{menuItem.title}}</p>
           </a>

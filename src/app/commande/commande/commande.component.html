@@ -1,0 +1,60 @@
+<div class="main-content">
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-plain">
+           <br><br><br><br><br>
+            <h2 class="centered-heading">Liste des commandes</h2>
+         
+            
+        
+            
+            <br><br>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                  <th>Commande id</th>
+                  <th>Date Commande</th>
+                  <th>Prix total</th>
+                  <th>Consumer Id</th>
+                  <th>Shopping cart id</th>
+                  </thead>
+                  <tbody>
+  
+               <tr *ngFor="let commande of commandes">
+                    <td>{{ commande.commande_id}}</td>
+                    <td>{{ commande.date_commande  }}</td>
+                    <td>{{ commande.prix_total}}</td>
+                    <td>{{ commande.consumer.idUser}}</td>
+                    <td>{{ commande.shoppingCart.id }}</td>
+                             <td>
+                  <!--   <button class="btn btn-primary" (click)="deleteProduct(product)">Delete Product</button>
+                    </td>
+                    <td>
+                      <button class="btn btn-primary" (click)="UpdateProduct(product)">Update Product</button>
+                    </td>-->
+                    <td>
+                        <button class="btn btn-primary" [routerLink]="'productsoflist/' + commande.shoppingCart.id">Show</button>
+                    </td> 
+                  </tr>  
+  
+                  </tbody>
+  
+  
+                </table>
+                <!-- Display products based on current page and page size -->
+  
+  
+                
+              </div>
+           
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
