@@ -34,11 +34,14 @@
       <fieldset class="fieldsett">
         <h4>Add Service Attribute:</h4>
         <input [(ngModel)]="i.attr.attribut" name="newProductDAttr" placeholder="Attribute" class="inputt">
+
         <br>
         <h4>Add Service Value:</h4>
         <input [(ngModel)]="i.detail.value" name="newProductDValue" placeholder="Value" class="inputt">
         <br>
-        <button (click)="removeFieldAtIndex(index)">X</button>
+<!--        <button class="delete-btn"><i class="fas fa-trash"></i> Delete</button>-->
+
+        <button class="btn-danger" (click)="removeFieldAtIndex(index)"><i class="fas fa-trash"></i></button>
       </fieldset>
     </ng-container>
     <button class="btn btn-primary" type="button" (click)="addFieldCount()">Add</button>

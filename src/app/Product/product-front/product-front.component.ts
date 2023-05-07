@@ -3,6 +3,8 @@ import {ProductService} from "../product.service";
 import {SharedService} from "../shared.service";
 import {Router} from "@angular/router";
 import {Product} from "../product";
+import {Category} from "../../category/category";
+import {CategoryService} from "../../category/category.service";
 
 @Component({
   selector: 'app-product-front',
@@ -12,10 +14,21 @@ import {Product} from "../product";
 export class ProductFrontComponent implements OnInit {
   products!: Product[];
   product!: Product;
+  categories!: Category[];
+  category!: Category;
+  selectedCategory: string;
+  filteredProducts: Product[];
+  totalPagesArray: number[] = [];
+
+  pageSize = 6;
+  currentPage = 1;
+  totalPages: number;
+  paginatedProducts: Product[];
+
   // currentPagef: number = 1;
   // pageSizef: number = 2;
   // totalItemsf: number = 0;
-  constructor(private productService: ProductService, private sharedService: SharedService,private router: Router) { }
+  constructor(private productService: ProductService, private sharedService: SharedService,private router: Router, private categoryService: CategoryService) { }
   ngOnInit(): void {
     this.product= new Product();
     this.productService.getProduct().subscribe(data => {
@@ -24,8 +37,32 @@ export class ProductFrontComponent implements OnInit {
 
       }
     );
+    this.category= new Category();
+    this.categoryService.getCategory().subscribe(data2 => {
+      this.categories = data2;
+
+    });
 
   }
+
+
+
+
+
+
+
+  filterByCategory(category: string): void {
+    const filteredProducts = this.products.filter((product: Product) => {
+      const productCategory = product.categoryp.categoryName;
+      return productCategory === category;
+    });
+
+    // Update the products array with the filtered results
+    this.products = filteredProducts;
+  }
+  resetFilters(): void {
+    this.refreshPage();  }
+
   sendDatafront(id: number) {
     this.products.forEach((product : Product)=>{
       if (product.id==id) {
