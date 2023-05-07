@@ -1,0 +1,187 @@
+
+<app-header></app-header>
+<!-- hero area -->
+<div class="hero-area hero-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 offset-lg-2 text-center">
+        <div class="hero-text">
+          <div class="hero-text-tablecell">
+            <p class="subtitle">PIdev 4ARCTIC5</p>
+            <div class="hero-btns">
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <h1>PI Dev</h1>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end hero area -->
+
+<!-- features list section -->
+<div class="list-section pt-80 pb-80">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+        <div class="list-box d-flex align-items-center">
+          <div class="list-icon">
+            <i class="fas fa-shipping-fast"></i>
+          </div>
+          <div class="content">
+            <h3>Free Shipping</h3>
+            <p>When order over $75</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+        <div class="list-box d-flex align-items-center">
+          <div class="list-icon">
+            <i class="fas fa-phone-volume"></i>
+          </div>
+          <div class="content">
+            <h3>24/7 Support</h3>
+            <p>Get support all day</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="list-box d-flex justify-content-start align-items-center">
+          <div class="list-icon">
+            <i class="fas fa-sync"></i>
+          </div>
+          <div class="content">
+            <h3>Refund</h3>
+            <p>Get refund within 3 days!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- end features list section -->
+
+<!-- Blog section -->
+<div class="container">
+  <div class="row">
+    <hr />
+    <div class="col-md-9">
+      <div class="row post">
+        <div class="col-md-1">
+          <app-vote-button [post]="post"></app-vote-button>
+        </div>
+        <div class="col-md-11">
+          <span>
+            <span class="subreddit-text"><a class="post-url" href="">{{post.subredditName}}</a></span>
+            <span> . Posted
+              <span> {{post.duration}} </span>
+              by              
+              <a class="username" href="">{{post.userName}}</a>
+            </span>
+          </span>
+          <hr />
+          <a routerLink="post.url" class="post-title">{{post.postName}}</a>
+          <div>
+            <p class="post-text" [innerHtml]="post.description"></p>
+          </div>
+          <div class="post-comment">
+            <form [formGroup]="commentForm" (ngSubmit)="postComment()">
+              <div class="form-group">
+                <textarea class="form-control" [formControlName]="'text'" placeholder="Your Thoughts?"></textarea>
+              </div>
+              <button type="submit" class="btnCreateSubreddit float-right" style="font-weight: bold">Comment</button>
+            </form>
+          </div>
+          <div style="margin-top: 60px;" *ngFor="let comment of comments">
+            <div *ngIf="comment.parentComment === null">
+              <div class="comment">
+                <div class="username">
+                  <a routerLink="/user/comment.username">{{comment.userName}}</a>
+                </div>
+                <div>
+                  <p>{{comment.duration}}</p>
+                </div>
+                <b>{{comment.text}}</b>
+                <!-- Add sub-comment form -->
+                <div class="sub-comment-form">     
+                  <div class="form-group">
+                    <textarea class="form-control form-control-sm" [formControlName]="'text'" placeholder="Reply to {{comment.userName}}"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-sm">Reply</button>
+                </div>
+                <!-- Display sub-comments -->
+                <div class="sub-comment" *ngFor="let subComment of comment.subComments">
+                  <div class="username">
+                    <a routerLink="/user/subComment.username">{{subComment.userName}}</a>
+                  </div>
+                  <div>
+                    <p>{{subComment.duration}}</p>
+                  </div>
+                  <b>{{subComment.text}}</b>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Display sub-comments 
+<div class="sub-comment" *ngFor="let subComment of comment.subComments">
+  <div class="username">
+    <a routerLink="/user/subComment.username">{{subComment.userName}}</a>
+  </div>
+  <div>
+    <p>{{subComment.duration}}</p>
+  </div>
+  <b>{{subComment.text}}</b>
+!->
+
+  <!-- Conditionally display reply form for sub-comment 
+  <ng-container >
+    <div class="form-group">
+      <textarea class="form-control form-control-sm" [formControlName]="'text'" placeholder="Reply to {{subComment.userName}}"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary btn-sm">Reply</button>
+  </ng-container>
+</div>
+
+-->
+
+
+
+
+
+
+
+
+
+
+
