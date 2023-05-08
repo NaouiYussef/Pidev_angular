@@ -21,4 +21,15 @@ public getLigne(id: number): Observable<ligne[]> {
     return this.http.get<ligne[]>("http://localhost:8080/LigneDeCommande/showLigneDeCommande/" + id);
 }
 
+public AddLigne( id: number, ligne:ligne): Observable<Cart> {
+  
+  return this.http.post<Cart>('http://localhost:8080/ShoppingCart/'+id+'/addLigneShop', ligne);
+}
+
+public AddLi(idPanier: number, idProduit: number): Observable<ligne> {
+  const url = "http://localhost:8080/LigneDeCommande/addLigneDeCommande/" + idPanier + "/" + idProduit;
+  return this.http.post<ligne>(url, {}, { responseType: 'json' });
+}
+
+
 }

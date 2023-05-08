@@ -3,6 +3,8 @@ import { Router, RouterLink } from '@angular/router';
 import { User } from '../user/user';
 import { UserService } from '../user/user.service';
 import { NgForm } from '@angular/forms';
+import { CartService } from '../cart/cart.service';
+import { Cart } from '../cart/cart';
 
 @Component({
   selector: 'app-signin',
@@ -12,7 +14,7 @@ import { NgForm } from '@angular/forms';
 export class SigninComponent implements OnInit {
   user: User = new User();
   userInfo: User = new User();
-  constructor(private userService: UserService, private route: Router) { }
+  constructor(private userService: UserService, private route: Router, private cartService: CartService) { }
   role: string = ''
   ngOnInit(): void {
 
@@ -40,7 +42,28 @@ export class SigninComponent implements OnInit {
        
         this.userService.getUserInfo().subscribe(
           (data) => {
+
             this.userInfo = data;
+            const cart:Cart={
+              id:0,
+              user: this.userInfo,
+              Total:0
+
+            
+            
+            }
+            console.log("id user: ",this.userInfo.idUser );
+            this.cartService.AddCart(this.userInfo).subscribe(
+              (cart: Cart) => {
+                console.log('Received cart:', cart);
+                // Do something with the cart, such as updating the UI
+              },
+              (error: any) => {
+                console.error('Error occurred:', error);
+                // Handle the error, such as displaying an error message
+              }
+            );
+            
             sessionStorage.setItem('user_role', data.roles.name );
             if (data.roles.name === 'admin') {
               this.route.navigateByUrl('body')

@@ -3,6 +3,7 @@ import { LigneService } from './ligne.service';
 import { CartService } from './cart.service';
 import { ActivatedRoute } from '@angular/router';
 import { ligne } from './ligne';
+import { UserService } from '../user/user.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -31,7 +32,9 @@ export class CartComponent implements OnInit {
       
       this.ligne = res;
      
-    })
+    });
+
+
       
   }
  

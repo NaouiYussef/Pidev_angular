@@ -132,7 +132,7 @@
             <h4><span class="grey-text">Per hour</span>: {{ product.prix}}DT</h4>
             <button class="btn" (click)="sendDatafront(product.id)">Show Details</button>
             <br>
-            <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+            <a routerLink="view-cart" [queryParams]="{ productId: product.id }" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
           </div>
 
         </div>

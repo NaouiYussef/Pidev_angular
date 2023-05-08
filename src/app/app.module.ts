@@ -67,7 +67,10 @@ import { CreatePostFrontComponent } from './post/create-post-front/create-post-f
 import { ListSubredditsComponent } from './subreddit/list-subreddits/list-subreddits.component';
 import { ViewPostFrontComponent } from './post/view-post-front/view-post-front.component';
 import { ViewSubcommentsComponent } from './post/view-subcomments/view-subcomments.component';
- 
+import { CartViewComponent } from './cart/cart-view/cart-view.component';
+import { MycartComponent } from './cart/mycart/mycart.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,    
@@ -120,6 +123,9 @@ import { ViewSubcommentsComponent } from './post/view-subcomments/view-subcommen
          ListSubredditsComponent,
          ViewPostFrontComponent,
          ViewSubcommentsComponent,
+         CartViewComponent,
+         MycartComponent,
+         
          
   ],
   imports: [

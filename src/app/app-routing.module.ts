@@ -42,6 +42,9 @@ import { CreatePostFrontComponent } from './post/create-post-front/create-post-f
 import { CreateSubredditFrontComponent } from './subreddit/create-subreddit-front/create-subreddit-front.component';
 import { ListSubredditsComponent } from './subreddit/list-subreddits/list-subreddits.component';
 import { ViewPostFrontComponent } from './post/view-post-front/view-post-front.component';
+import { CartViewComponent } from './cart/cart-view/cart-view.component';
+import { MycartComponent } from './cart/mycart/mycart.component';
+
 const routes: Routes =  [
 {  path:'admin',
   component:TemplateAdminComponent,
@@ -92,7 +95,9 @@ const routes: Routes =  [
     { path: 'create-subreddit-front', component: CreateSubredditFrontComponent},
     { path: 'list-subreddits', component: ListSubredditsComponent },  
     { path: 'view-post-front/:id', component: ViewPostFrontComponent },
-
+    { path: 'app-product-front/view-cart', component: MycartComponent},
+    { path:'view-my-cart', component:CartViewComponent}
+    
 
 
   ]
