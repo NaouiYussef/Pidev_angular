@@ -29,5 +29,8 @@ export class CommentService {
   deleteById(id: number): Observable<void> {
     return this.httpClient.delete<void>('http://localhost:8080/api/comments/' + id);
   }
+  createSubComment(commentPayload: CommentPayload,id:number): Observable<any> {
+    return this.httpClient.post<any>('http://localhost:8080/api/comments/' + id, commentPayload);
+  }
 
 }

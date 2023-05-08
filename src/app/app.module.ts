@@ -54,17 +54,28 @@ import { RedirectionComponent } from './redirection/redirection.component';
 import { ViewRolesComponent } from './role/view-roles/view-roles.component';
 import { CommandeComponent } from './commande/commande/commande.component';
 import { CartComponent } from './cart/cart.component';
-
+import { PostTileComponent } from './shared/post-tile/post-tile.component';
+import { SideBarComponent } from './shared/side-bar/side-bar.component';
+import { SubredditSideBarComponent } from './shared/subreddit-side-bar/subreddit-side-bar.component';
+import { VoteButtonComponent } from './shared/vote-button/vote-button.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HomeComponent } from './home/home.component';
+import { ToastrModule } from 'ngx-toastr';
+import { EditorModule } from '@tinymce/tinymce-angular';
+import { CreateSubredditFrontComponent } from './subreddit/create-subreddit-front/create-subreddit-front.component';
+import { CreatePostFrontComponent } from './post/create-post-front/create-post-front.component';
+import { ListSubredditsComponent } from './subreddit/list-subreddits/list-subreddits.component';
+import { ViewPostFrontComponent } from './post/view-post-front/view-post-front.component';
+import { ViewSubcommentsComponent } from './post/view-subcomments/view-subcomments.component';
+ 
 @NgModule({
   declarations: [
-    AppComponent,
-    
+    AppComponent,    
     UserComponent,
     RoleComponent,
     SigninComponent,
     SignupComponent,
-    DashboardBackComponent,
-    
+    DashboardBackComponent,    
     NavbarComponent,
     FooterComponent,
     HeaderComponent,
@@ -93,13 +104,23 @@ import { CartComponent } from './cart/cart.component';
     ProductFrontComponent,
     ProductDetailsFrontComponent,
     ChangemdpComponent,
-    UpdatepasswordComponent,
-    
+    UpdatepasswordComponent,   
     UpdateprofilComponent,
          RedirectionComponent,
          ViewRolesComponent,
          CommandeComponent,
          CartComponent,
+         PostTileComponent,
+         SideBarComponent,
+         SubredditSideBarComponent,
+         VoteButtonComponent,
+         HomeComponent,
+         CreateSubredditFrontComponent,
+         CreatePostFrontComponent,
+         ListSubredditsComponent,
+         ViewPostFrontComponent,
+         ViewSubcommentsComponent,
+         
   ],
   imports: [
     
@@ -112,7 +133,10 @@ import { CartComponent } from './cart/cart.component';
     MatButtonModule,
     MatDialogModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule,
+    ToastrModule.forRoot(),
+    EditorModule
   ],
   providers: [UserService, RoleService],
   bootstrap: [AppComponent]

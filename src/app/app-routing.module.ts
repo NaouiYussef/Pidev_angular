@@ -37,6 +37,11 @@ import { RedirectionComponent } from './redirection/redirection.component';
 import { ViewRolesComponent } from './role/view-roles/view-roles.component';
 import { RoleComponent } from './role/role.component';
 import {CommandeComponent} from "./commande/commande/commande.component";
+import { HomeComponent } from './home/home.component';
+import { CreatePostFrontComponent } from './post/create-post-front/create-post-front.component';
+import { CreateSubredditFrontComponent } from './subreddit/create-subreddit-front/create-subreddit-front.component';
+import { ListSubredditsComponent } from './subreddit/list-subreddits/list-subreddits.component';
+import { ViewPostFrontComponent } from './post/view-post-front/view-post-front.component';
 const routes: Routes =  [
 {  path:'admin',
   component:TemplateAdminComponent,
@@ -81,7 +86,12 @@ const routes: Routes =  [
 { path: 'updatepPassword/:token/:email', component: UpdatepasswordComponent },
     { path: 'app-product-front', component: ProductFrontComponent},
     { path: 'app-product-details-front', component: ProductDetailsFrontComponent},
-    { path: 'update', component: UpdateprofilComponent}
+    { path: 'update', component: UpdateprofilComponent},
+    { path: 'forum', component: HomeComponent },
+    { path: 'create-post-front', component: CreatePostFrontComponent},
+    { path: 'create-subreddit-front', component: CreateSubredditFrontComponent},
+    { path: 'list-subreddits', component: ListSubredditsComponent },  
+    { path: 'view-post-front/:id', component: ViewPostFrontComponent },
 
 
 

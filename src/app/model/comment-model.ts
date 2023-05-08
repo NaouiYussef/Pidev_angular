@@ -1,9 +1,14 @@
 export class CommentPayload{
-    id: number;
+    id?: number;
     text: string;
     postId: number;
-    createdDate: String;
+    createdDate?: String;
     userName:string;
-    postName: String;
-    duration: string;
+    postName?: String;
+    duration?: string;
+    parentComment?: CommentPayload;
+    subComments?: CommentPayload[];
+    parentCommentId ?: number;
+    sub: boolean;
+   
 }
