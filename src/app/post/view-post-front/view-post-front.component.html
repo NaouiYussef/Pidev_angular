@@ -101,45 +101,45 @@
             </span>
           </span>
           <hr />
-          <a routerLink="post.url" class="post-title">{{post.postName}}</a>
+          <a routerLink="{{post.url}}" class="post-title">{{post.postName}}</a>
           <div>
-            <p class="post-text" [innerHtml]="post.description"></p>
+            <p class="post-text" [innerHTML]="post.description"></p>
           </div>
           <div class="post-comment">
             <form [formGroup]="commentForm" (ngSubmit)="postComment()">
               <div class="form-group">
-                <textarea class="form-control" [formControlName]="'text'" placeholder="Your Thoughts?"></textarea>
+                <textarea class="form-control" formControlName="text" placeholder="Your Thoughts?"></textarea>
               </div>
               <button type="submit" class="btnCreateSubreddit float-right" style="font-weight: bold">Comment</button>
             </form>
           </div>
           <div style="margin-top: 60px;" *ngFor="let comment of comments">
-            <div *ngIf="comment.parentComment === null">
-              <div class="comment">
-                <div class="username">
-                  <a routerLink="/user/comment.username">{{comment.userName}}</a>
-                </div>
-                <div>
-                  <p>{{comment.duration}}</p>
-                </div>
-                <b>{{comment.text}}</b>
-                <!-- Add sub-comment form -->
-                <div class="sub-comment-form">     
+            <div class="comment" *ngIf="!comment.sub">
+              <div class="username">
+                <a >{{comment.userName}}</a>
+              </div>
+              <div>
+                <p>{{comment.duration}}</p>
+              </div>
+              <b>{{comment.text}}</b>
+              <!-- Add sub-comment form -->
+              <div class="sub-comment-form">
+                <form [formGroup]="SubcommentForm" (ngSubmit)="postSubComment(comment.id)">
                   <div class="form-group">
-                    <textarea class="form-control form-control-sm" [formControlName]="'text'" placeholder="Reply to {{comment.userName}}"></textarea>
+                    <textarea class="form-control form-control-sm" formControlName="text" placeholder="Reply to {{comment.userName}}"></textarea>
                   </div>
                   <button type="submit" class="btn btn-primary btn-sm">Reply</button>
+                </form>
+              </div>
+              <!-- Display sub-comments --> 
+              <div class="sub-comment" *ngFor="let subComment of comment.subComments">
+                <div class="username">
+                  <a >{{subComment.userName}}</a>
                 </div>
-                <!-- Display sub-comments -->
-                <div class="sub-comment" *ngFor="let subComment of comment.subComments">
-                  <div class="username">
-                    <a routerLink="/user/subComment.username">{{subComment.userName}}</a>
-                  </div>
-                  <div>
-                    <p>{{subComment.duration}}</p>
-                  </div>
-                  <b>{{subComment.text}}</b>
+                <div>
+                  <p>{{subComment.duration}}</p>
                 </div>
+                <b>{{subComment.text}}</b>
               </div>
             </div>
           </div>
@@ -148,6 +148,7 @@
     </div>
   </div>
 </div>
+
 
 
 

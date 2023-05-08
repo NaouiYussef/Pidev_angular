@@ -112,7 +112,7 @@ export class UserService {
     }
   
   
-  
+ // User user = UserService.getUserInfo();
   
     getUserInfo(): Observable<User> {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${sessionStorage.getItem('access_token')}`);

@@ -6,6 +6,9 @@ export class CommentPayload{
     userName:string;
     postName?: String;
     duration?: string;
-    parentComment: String;
+    parentComment?: CommentPayload;
     subComments?: CommentPayload[];
+    parentCommentId ?: number;
+    sub: boolean;
+   
 }
