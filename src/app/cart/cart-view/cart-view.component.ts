@@ -29,12 +29,21 @@ export class CartViewComponent implements OnInit {
     });
     this.getAllCarts();
     this.addLigne();
-    
+    this.calculateTotal();
   }
+  total: number;
+
+  calculateTotal() {
+    let total = 0;
   
+    for (let i = 0; i < this.lignes.length; i++) {
+      total += this.lignes[i].prixT;
+    }
+    this.total = total;
+  }
   private getLigneProduit(id:number): ligne {
     for (let i=0;i<this.lignes.length;i++) {
-      if(this.lignes[i].product.id==this.productid) {
+      if(this.lignes[i].product.id==this.productid ) {
       
         return this.lignes[i];
    
@@ -54,6 +63,8 @@ export class CartViewComponent implements OnInit {
               this.ligneService.getLigne(this.carts[i].id).subscribe(res => {
                 this.id=this.carts[i].id;
                 this.lignes=res;
+                this.calculateTotal(); // Move the call to calculateTotal here
+
                // this.addLigne();
               });
               break;

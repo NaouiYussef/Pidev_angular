@@ -44,6 +44,7 @@ import { ListSubredditsComponent } from './subreddit/list-subreddits/list-subred
 import { ViewPostFrontComponent } from './post/view-post-front/view-post-front.component';
 import { CartViewComponent } from './cart/cart-view/cart-view.component';
 import { MycartComponent } from './cart/mycart/mycart.component';
+import { ValidationCommandeComponent } from './validation-commande/validation-commande.component';
 
 const routes: Routes =  [
 {  path:'admin',
@@ -96,8 +97,8 @@ const routes: Routes =  [
     { path: 'list-subreddits', component: ListSubredditsComponent },  
     { path: 'view-post-front/:id', component: ViewPostFrontComponent },
     { path: 'app-product-front/view-cart', component: MycartComponent},
-    { path:'view-my-cart', component:CartViewComponent}
-    
+    { path:'view-my-cart', component:CartViewComponent},
+    { path: 'validation/:id', component:ValidationCommandeComponent}
 
 
   ]

@@ -64,21 +64,22 @@
 							<tbody>
 								<tr class="total-data">
 									<td><strong>Subtotal: </strong></td>
-									<td>$500</td>
-								</tr>
-								<tr class="total-data">
+									<td>${{ total }}</td>
+								  </tr>
+								  <tr class="total-data">
 									<td><strong>Shipping: </strong></td>
 									<td>$45</td>
-								</tr>
-								<tr class="total-data">
+								  </tr>
+								  <tr class="total-data">
 									<td><strong>Total: </strong></td>
-									<td>$545</td>
-								</tr>
+									<td>${{ total + 45 }}</td>
+								  </tr>
+								  
 							</tbody>
 						</table>
 						<div class="cart-buttons">
 							<a href="cart.html" class="boxed-btn">Update Cart</a>
-							<a href="checkout.html" class="boxed-btn black">Check Out</a>
+							<a [routerLink]="['/validation',id]" class="boxed-btn black">Validate  </a>
 						</div>
 					</div>
 

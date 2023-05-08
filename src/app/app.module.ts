@@ -69,6 +69,7 @@ import { ViewPostFrontComponent } from './post/view-post-front/view-post-front.c
 import { ViewSubcommentsComponent } from './post/view-subcomments/view-subcomments.component';
 import { CartViewComponent } from './cart/cart-view/cart-view.component';
 import { MycartComponent } from './cart/mycart/mycart.component';
+import { ValidationCommandeComponent } from './validation-commande/validation-commande.component';
 
 
 @NgModule({
@@ -125,6 +126,7 @@ import { MycartComponent } from './cart/mycart/mycart.component';
          ViewSubcommentsComponent,
          CartViewComponent,
          MycartComponent,
+         ValidationCommandeComponent,
          
          
   ],

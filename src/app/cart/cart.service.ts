@@ -23,6 +23,16 @@ public AddCart( user: User): Observable<Cart> {
   return this.http.post<Cart>('http://localhost:8080/ShoppingCart/addCart', user);
 }
 
+public EditCart(id:number): Observable<Cart>
+{
+  const url = "'http://localhost:8080/ShoppingCart/editShop/' +id";
+  return this.http.put<Cart>("http://localhost:8080/ShoppingCart/editShop/" + id, id);
+ // return this.http.put<Cart>(url, {}, { responseType: 'json' });
+       
+
+
+}
+
 
 
 }

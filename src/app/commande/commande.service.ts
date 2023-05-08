@@ -14,7 +14,7 @@ export class CommandeService {
 
   
   public getCommandes(): Observable<Commande[]> {
-    return this.http.get<Commande[]>("http://localhost:8080/Commande/showCommande");
+    return this.http.get<Commande[]>("http://localhost:8080/Commande/showCommandes");
 }
 
 }

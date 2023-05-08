@@ -29,7 +29,7 @@ export class MycartComponent implements OnInit {
     });
     this.getAllCarts();
     this.addLigne();
-    
+     this.routs.navigate(['/body']);
   }
   
   private getLigneProduit(id:number): ligne {
@@ -55,7 +55,7 @@ export class MycartComponent implements OnInit {
                 this.id=this.carts[i].id;
                 this.lignes=res;
                 this.addLigne();
-                
+                this.routs.navigate(['/body']);
 
               });
               break;
@@ -77,7 +77,7 @@ export class MycartComponent implements OnInit {
         res => {
         
           this.monCart = res;
-          this.routs.navigateByUrl("app-product-front");
+          this.routs.navigate(['/body']);
         }
       );
     } else {
