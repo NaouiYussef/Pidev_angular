@@ -1,0 +1,54 @@
+
+<head>
+  <title>My Web Page</title>
+</head>
+<body>
+<h1>Welcome to my web page</h1>
+<p>This is some sample text.</p>
+<ul>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+<form>
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name"><br><br>
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email"><br><br>
+  <button type="submit">Submit</button>
+</form>
+</body>
+
+
+
+<div class='bold-line'></div>
+<div class='container'>
+  <div class='window'>
+    <div class='overlay'></div>
+    <div class='content'>
+      <div class='welcome'>Hello There!</div>
+      <div class='subtitle'><br>We're almost done. Before using our services you need to create an account.</div>
+      <div class='input-fields'>
+        <form [formGroup]="form" (submit)="onSubmit()">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <input type="email" class='input-line full-width' name="providerMail"
+                     formControlName="providerMail" placeholder="Provider email" required
+                     style="height: 55px;">
+              <br>
+              <div class="alert alert-danger" *ngIf="form.controls['providerMail'].touched && form.controls['providerMail'].invalid">
+                <div *ngIf="form.controls['providerMail'].errors?.['required']">Email is required</div>
+                <div *ngIf="form.controls['providerMail'].errors?.['email']">Invalid email address</div>
+              </div>
+              <div>
+                <label>File:</label>
+                <input type="file" (change)="onFileChange($event)" required>
+              </div>
+              <button type="submit">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -30,6 +30,8 @@ import {ProductFrontComponent} from "./Product/product-front/product-front.compo
 import {ProductDetailsFrontComponent} from "./product-details/product-details-front/product-details-front.component";
 import { ChangemdpComponent } from './changemdp/changemdp.component';
 import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
+import {SlaComponent} from "./sla/sla.component";
+import {SlaBackComponent} from "./sla/sla-back/sla-back.component";
 
 const routes: Routes =  [
 {  path:'admin',
@@ -45,7 +47,7 @@ const routes: Routes =  [
     { path: 'new-product', component: ProductFormComponent },
     { path: 'update-product', component: ProductUpdateComponent },
     { path: 'details', component: ProductDetailsComponent },
-
+    { path: 'sla', component: SlaBackComponent},
     { path: 'post', component: PostComponent },
     { path: 'create-post', component: CreatePostComponent},
     { path: 'edit-post/:id', component: EditPostComponent},
@@ -72,6 +74,7 @@ const routes: Routes =  [
 { path: 'updatepPassword/:token/:email', component: UpdatepasswordComponent },
     { path: 'app-product-front', component: ProductFrontComponent},
     { path: 'app-product-details-front', component: ProductDetailsFrontComponent},
+    { path: 'create-sla', component: SlaComponent}
 
 
 

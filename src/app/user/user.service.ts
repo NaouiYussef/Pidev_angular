@@ -12,19 +12,19 @@ import { HttpHeaders } from '@angular/common/http';
 export class UserService {
     private apiServerUrl=environment.apiBaseUrl;
     constructor(private http: HttpClient) { }
-    productURL = "http://localhost:8080/";
+    productURL = "http://localhost:8081/";
 
     private httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer' + ' ' + sessionStorage.getItem('access_token')
       })
-  
+
     };
-   
+
     getRolesfromspring() {
-       
-      return this.http.get<string>("http://localhost:8080/roles",this.httpOptions)
+
+      return this.http.get<string>("http://localhost:8081/roles",this.httpOptions)
      }
     role:any
     async getRoles(): Promise<string> {
@@ -47,7 +47,7 @@ export class UserService {
       if (userRoles != null && userRoles) {
         if (userRoles === allowedRoles[0]) {
           isMatch = true
-          console.log(isMatch) 
+          console.log(isMatch)
           console.log(isMatch)
           return isMatch
         } else {
@@ -56,17 +56,17 @@ export class UserService {
       }
       return isMatch
     }
-    
+
     clear() {
       sessionStorage.clear()
     }
     getToken(): any {
       const token= sessionStorage.getItem('access_token');
-    
+
       return token
     }
-   
-    
+
+
 
     public getUsers(url: string): Observable<User[]> {
         return this.http.get<User[]>(url);
@@ -76,15 +76,15 @@ export class UserService {
          // Extract the role id
          console.log("service" ,user);
         return this.http.post<User>(`${this.apiServerUrl}user/add`,user);
-        
+
       }
-      
+
 
       public updateUsers(user: User): Observable<User> {
         console.log("update : ", user);
-        
+
         return this.http.put<User>(`${this.apiServerUrl}user/update`, user);
-        
+
       }
 
     public deleteUsers(userId: number): Observable<void> {
@@ -94,29 +94,36 @@ export class UserService {
       const headers = new HttpHeaders({
         'Content-Type': 'application/x-www-form-urlencoded'
       });
-  
+
       const body = new HttpParams()
         .set('email', email)
         .set('password', password);
   console.log(this.httpOptions, body, headers)
-      return this.http.post('http://localhost:8080/login', body.toString(), { headers });
+      return this.http.post('http://localhost:8081/login', body.toString(), { headers });
     }
-  
+
     sendEmailpassword(email: string, user: any) {
-      return this.http.post("http://localhost:8080/SendEmailForgetpassword/" + email, user)
+      return this.http.post("http://localhost:8081/SendEmailForgetpassword/" + email, user)
     }
-  
+
     changePAssword(email: string, token: string, password: string) {
-      return this.http.get(" http://localhost:8080/email/reset/" + token + "/" + email + "/" + password)
+      return this.http.get(" http://localhost:8081/email/reset/" + token + "/" + email + "/" + password)
     }
-  
-   
-  
+
+
+
     getUserInfo(): Observable<User> {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${sessionStorage.getItem('access_token')}`);
-      return this.http.get<User>('http://localhost:8080/session', { headers });
+      return this.http.get<User>('http://localhost:8081/session', { headers });
     }
     getUserbyemail(email: string) {
-      return this.http.get<User>('http://localhost:8080/AfficherUserByemail/' + email);
+      return this.http.get<User>('http://localhost:8081/AfficherUserByemail/' + email);
     }
+
+  public addUsersMicrosoft(user: User): Observable<User> {
+    // Extract the role id
+    console.log("service" ,user);
+    return this.http.post<User>(`${this.apiServerUrl}user/add`,user);
+
+  }
 }

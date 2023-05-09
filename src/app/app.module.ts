@@ -50,6 +50,22 @@ import { ProductDetailsFrontComponent } from './product-details/product-details-
 import { ChangemdpComponent } from './changemdp/changemdp.component';
 import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
 
+
+import {MSAL_INSTANCE, MsalModule, MsalService} from "@azure/msal-angular";
+import {IPublicClientApplication, PublicClientApplication} from "@azure/msal-browser";
+import { SlaComponent } from './sla/sla.component';
+import { SlaBackComponent } from './sla/sla-back/sla-back.component';
+
+export function MSALInstanceFactory(): IPublicClientApplication {
+  return new PublicClientApplication({
+    auth: {
+      clientId: '566e9ff0-a812-40cc-900c-2de7f0ab4c0e',
+      redirectUri: 'http://localhost:4200',
+      postLogoutRedirectUri: 'http://localhost:4200'
+    }
+  })
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,6 +104,8 @@ import { UpdatepasswordComponent } from './updatepassword/updatepassword.compone
     ProductDetailsFrontComponent,
     ChangemdpComponent,
     UpdatepasswordComponent,
+    SlaComponent,
+    SlaBackComponent,
   ],
   imports: [
 
@@ -99,9 +117,15 @@ import { UpdatepasswordComponent } from './updatepassword/updatepassword.compone
     MatButtonModule,
     MatDialogModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MsalModule
   ],
-  providers: [UserService, RoleService],
+  providers: [UserService, RoleService, MsalService,
+    {
+      provide: MSAL_INSTANCE,
+      useFactory: MSALInstanceFactory
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
