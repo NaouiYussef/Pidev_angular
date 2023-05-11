@@ -11,7 +11,9 @@ export class CommandeService {
 
   constructor(private http: HttpClient) { }
 
-
+  public getCommandeId(id : Number): Observable<Commande>{
+    return this.http.get<Commande>("http://localhost:8080/Commande/showCommande"+id)
+  }
   
   public getCommandes(): Observable<Commande[]> {
     return this.http.get<Commande[]>("http://localhost:8080/Commande/showCommandes");

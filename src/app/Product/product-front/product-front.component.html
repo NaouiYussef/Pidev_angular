@@ -124,7 +124,9 @@
         <div *ngFor="let product of products" class="col-lg-4 col-md-6">
           <div class="single-product-item text-center">
             <hr>
-            <h2 class="orange-text">{{ product.categoryp.categoryName}}</h2>
+            <h2 class="orange-text">{{ product.categoryp.categoryName}}
+            <a  class="file-archive"style="font-size: 11px; padding: 5px; margin-left: 20px;" routerLink="/feedbackf/{{product.id}}"(click)="openForm.emit()"><i class="fas fa-file-archive"></i> Submit Feedback</a>
+</h2>
             <hr>
 
             <h3><span class="grey-text">Service name: </span>{{ product.productName}}</h3>

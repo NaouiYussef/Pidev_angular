@@ -33,5 +33,7 @@ export class CategoryFormComponent {
   redirectToCategory() {
     this.router.navigate(['/admin/category']); // Use the router.navigate() method to navigate to the new category component
   }
+  
+  
 
 }

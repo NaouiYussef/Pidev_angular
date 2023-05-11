@@ -14,7 +14,10 @@ export const ROUTES: RouteInfo[] = [
   { path: '/admin/post', title: 'Posts',  class: '' },
   { path: '/admin/view-comment', title: 'Comments',  class: '' },
   { path: '/admin/rolelist', title: 'Role List',  class: '' },
-  { path: '/admin/app-commande', title: 'Command List', class: ''}
+  { path: '/admin/app-commande', title: 'Command List', class: ''},
+  { path: '/admin/sla', title: 'Sla', class: ''},
+  { path: '/admin/chatb', title: 'Active Chats', class: ''},
+  { path: '/admin/feedbackb', title: 'Feedbacks OnHold', class: ''}
 
 ];
 @Component({

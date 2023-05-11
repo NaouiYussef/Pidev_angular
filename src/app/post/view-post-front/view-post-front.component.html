@@ -1,3 +1,4 @@
+
 <app-header></app-header>
 <!-- hero area -->
 <div class="hero-area hero-bg">
@@ -113,14 +114,26 @@
             </form>
           </div>
           <div style="margin-top: 60px;" *ngFor="let comment of comments">
-            <div class="comment" *ngIf="!comment.sub">
+            <div class="comment" *ngIf="comment.parentCommentId === null">
               <div class="username">
-                <a >{{comment.userName}}</a>
+                <a>{{comment.userName}}</a>
               </div>
               <div>
                 <p>{{comment.duration}}</p>
               </div>
               <b>{{comment.text}}</b>
+              
+              <!-- Display sub-comments -->
+              <div class="sub-comment" *ngFor="let subComment of comments">
+                <div class="username" *ngIf="subComment.parentCommentId === comment.id">
+                  <a>{{subComment.userName}}</a>
+                </div>
+                <div>
+                  <p>{{subComment.duration}}</p>
+                </div>
+                <b>{{subComment.text}}</b>
+              </div>
+            
               <!-- Add sub-comment form -->
               <div class="sub-comment-form">
                 <form [formGroup]="SubcommentForm" (ngSubmit)="postSubComment(comment.id)">
@@ -130,8 +143,16 @@
                   <button type="submit" class="btn btn-primary btn-sm">Reply</button>
                 </form>
               </div>
-              <!-- Display sub-comments --> 
-              <div class="sub-comment" *ngFor="let subComment of comment.subComments">
+            </div>
+         
+
+
+
+
+
+
+ <!-- Display sub-comments --> 
+              <!-- <div class="sub-comment" *ngFor="let subComment of comment.subComments">
                 <div class="username">
                   <a >{{subComment.userName}}</a>
                 </div>
@@ -139,18 +160,7 @@
                   <p>{{subComment.duration}}</p>
                 </div>
                 <b>{{subComment.text}}</b>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
+              </div> -->
 
 
 <!-- Display sub-comments 
@@ -163,6 +173,7 @@
   </div>
   <b>{{subComment.text}}</b>
 !->
+
   <!-- Conditionally display reply form for sub-comment 
   <ng-container >
     <div class="form-group">
@@ -171,4 +182,5 @@
     <button type="submit" class="btn btn-primary btn-sm">Reply</button>
   </ng-container>
 </div>
-!-->
+
+-->

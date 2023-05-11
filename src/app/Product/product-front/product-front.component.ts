@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {ProductService} from "../product.service";
 import {SharedService} from "../shared.service";
 import {Router} from "@angular/router";
 import {Product} from "../product";
 import {Category} from "../../category/category";
 import {CategoryService} from "../../category/category.service";
+import {  EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-product-front',
@@ -12,6 +13,8 @@ import {CategoryService} from "../../category/category.service";
   styleUrls: ['./product-front.component.css']
 })
 export class ProductFrontComponent implements OnInit {
+  @Output() openForm = new EventEmitter<void>();
+
   products!: Product[];
   product!: Product;
   categories!: Category[];

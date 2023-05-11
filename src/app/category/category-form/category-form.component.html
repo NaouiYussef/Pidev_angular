@@ -1,9 +1,10 @@
-<br>
 <div class="container">
   <div class="form-group">
-    <input [(ngModel)]="category.categoryName" name="newCategoryName" placeholder="Category name"
-           class="form-control">
+    <input [(ngModel)]="category.categoryName" name="newCategoryName" required placeholder="Category name"
+           class="form-control" #categoryNameInput="ngModel">
+    <div *ngIf="categoryNameInput.errors?.['required']">Category name is required</div>
   </div>
-  <button class="btn btn-primary" (click)="createCategory()">Add Category</button>
-
- </div>
+  <div class="col-12" *ngIf="category.categoryName">
+    <button class="btn btn-primary"  (click)="createCategory()">Add Category</button>
+  </div>
+</div>

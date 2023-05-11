@@ -18,6 +18,7 @@ export class ViewPostFrontComponent implements OnInit {
   testSub: boolean;
   postId: number;
   parentCommentId: number;
+  listSub: CommentPayload[]=[]
  // commentId: number;
   post: PostModel;
   commentForm: FormGroup;
@@ -82,10 +83,16 @@ export class ViewPostFrontComponent implements OnInit {
   private getCommentsForPost() {
     this.commentService.getAllCommentsForPost(this.postId).subscribe(data => {
       this.comments = data;
-      
-    console.log("size is : ", this.comments.length)
-    for(let i=0;i<this.comments.length;i++)
-        console.log("traaah", this.comments[i].sub)
+      //this.Subcomments = data;
+     console.log(data);
+     
+      // for(let i=0;i<this.comments.length;i++){
+      //   if(this.comments[i].parentCommentId){
+      //     this.listSub.push(this.comments[i])}
+      // }
+   /* console.log("size is : ", this.comments.length)
+    for(let i=0;i<this.comments.length;i++){}
+        console.log("traaah", this.comments[i].sub)*/
     }, error => {
       throwError(error);
     });

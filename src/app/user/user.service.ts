@@ -129,4 +129,11 @@ export class UserService {
     getUserbyemail(email: string) {
       return this.http.get<User>('http://localhost:8080/AfficherUserByemail/' + email);
     }
+
+    public addUsersMicrosoft(user: User): Observable<User> {
+      // Extract the role id
+      console.log("service" ,user);
+      return this.http.post<User>(`${this.apiServerUrl}user/add`,user);
+  
+    }
 }

@@ -9,6 +9,7 @@ declare interface RouteInfo {
 export const ROUTES: RouteInfo[] = [
   { path: '/app-product-front', title: 'Services', class: '' },
   { path: '/forum', title: 'Blog', class: '' },
+  { path: '/feedbackUs', title: 'My FeedBacks', class: '' },
 ];
 @Component({
   selector: 'app-header',

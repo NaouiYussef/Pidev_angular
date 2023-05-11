@@ -31,5 +31,10 @@ public AddLi(idPanier: number, idProduit: number): Observable<ligne> {
   return this.http.post<ligne>(url, {}, { responseType: 'json' });
 }
 
+public deleteLigne(id: number): Observable<void> {
+  return this.http.delete<void>("http://localhost:8080/LigneDeCommande/deleteLigneDeCommande/" + id);
+}
+
+
 
 }

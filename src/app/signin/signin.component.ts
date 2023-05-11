@@ -5,6 +5,9 @@ import { UserService } from '../user/user.service';
 import { NgForm } from '@angular/forms';
 import { CartService } from '../cart/cart.service';
 import { Cart } from '../cart/cart';
+import {AuthenticationResult} from "@azure/msal-browser";
+import {MsalService} from "@azure/msal-angular";
+
 
 @Component({
   selector: 'app-signin',
@@ -14,7 +17,8 @@ import { Cart } from '../cart/cart';
 export class SigninComponent implements OnInit {
   user: User = new User();
   userInfo: User = new User();
-  constructor(private userService: UserService, private route: Router, private cartService: CartService) { }
+  constructor(private userService: UserService, private route: Router, private cartService: CartService, private msalService: MsalService) { }
+ 
   role: string = ''
   ngOnInit(): void {
 
@@ -93,5 +97,31 @@ export class SigninComponent implements OnInit {
     console.log("aaaaaaaaaaa")
     this.role = this.userInfo.roles.name
    }
+   loginWithMicrosoft(){
+    // Redirect to Microsoft sign in page
+    //this.msalService.loginRedirect()
+    // Popup page for Microsoft authentification
+    this.msalService.loginPopup().subscribe((response: AuthenticationResult) => {
+      this.msalService.instance.setActiveAccount(response.account);
+      const accessToken = this.msalService.instance.getActiveAccount().idToken;
+      sessionStorage.setItem('access_token', accessToken);
+      sessionStorage.setItem('user_role', 'azure' );
+      //this.roleService.getRoleByName('azure').subscribe((role: Role) => {
+      this.user = {
+        idUser: 0,
+        username: this.msalService.instance.getActiveAccount().name,
+        mail: this.msalService.instance.getActiveAccount().idTokenClaims.preferred_username,
+        password: "unknown",
+        verifPassword: "unkown",
+        roles: {id: 4, name: 'azure'},
+        roleName: "Default"
+      };
+      console.log(this.user);
+      this.userService.addUsersMicrosoft(this.user).subscribe();
+      //});
+      this.route.navigateByUrl('body')
+    })
 
+
+  }
 }

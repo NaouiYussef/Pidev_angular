@@ -8,6 +8,7 @@ import { etat } from '../etat';
 import { ligne } from '../ligne';
 import { LigneService } from '../ligne.service';
 import { exit } from 'process';
+import { Product } from 'src/app/Product/product';
 
 @Component({
   selector: 'app-cart-view',
@@ -99,4 +100,17 @@ export class CartViewComponent implements OnInit {
       }
       }
   }
+  public onDeleteLigne(id: number): void {
+
+    this.ligneService.deleteLigne(id).subscribe(
+      (response: void) => {
+        console.log(response);
+        this.getAllCarts();
+        this.calculateTotal;
+
+},
+      
+    );
+  }
+ 
 }  
