@@ -1,0 +1,82 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" style="color:white;">Sla </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container" id="main-container">
+  <div class="row">
+    <div *ngFor="let sla of slas"   class="col-md-6 col-xl-3">
+      <div class="card m-b-30">
+        <div class="card-body row">
+          <div class="col-6">
+            <a href=""><img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" class="img-fluid rounded-circle w-60"></a>
+          </div>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Date creation: {{ sla?.date | date:'medium' }}</li>
+          <li class="list-group-item"><i class="fa fa-phone float-right"></i>Sla : <br> <a href="#">{{sla?.file}}</a></li>
+
+        </ul>
+        <div class="card-body">
+          <div class="float-right btn-group btn-group-sm">
+       <a (click)="onOpenModal(sla)" class="btn btn-primary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit" ><i class="fa fa-pencil"></i> </a>
+           <a  (click)="deletesla(sla.id)" class="btn btn-secondary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-times"></i></a>
+           <button (click)="downloadSla(sla.id)" class="btn btn-success tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Download"><i class="fa fa-download"></i></button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="modal fade" id="updateEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="employeeEditModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateEmployeeModalLabel">Edit Sla</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #editForm="ngForm">
+
+
+        <!--  <input type="email" class='input-line full-width' name="providerMail"
+                 formControlName="providerMail" value="{{monsla.providerMail}}" placeholder="Provider email" required
+                 style="height: 55px;"> -->
+          <br>
+
+
+          <div>
+            <label>File:</label>
+            <input type="file"  (change)="onFileChange($event)" required>
+          </div>
+
+
+
+
+
+          <div class="modal-footer">
+            <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+            <button (click)="edit()" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+

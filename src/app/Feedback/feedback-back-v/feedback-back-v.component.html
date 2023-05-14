@@ -1,0 +1,15 @@
+<app-feedback-b (openFormm)="openFormm()"></app-feedback-b>
+
+<div class="container">
+  <div class="form-popup" [ngClass]="{'show': displayForm}">
+    <form class="form-container" (ngSubmit)="submitForm()">
+      <h2>Submit Response</h2>
+      <label for="response"><b>Response</b></label>
+      <input type="text" placeholder="Enter Response" id="response" name="response" [(ngModel)]="f" required>
+      <button type="submit" class="btn"routerLink="/feedbackb">Submit</button>
+      <button type="button" class="btn cancel" routerLink="/feedbackb"(click)="closeForm()">Close</button>
+    </form>
+  </div>
+
+
+</div>

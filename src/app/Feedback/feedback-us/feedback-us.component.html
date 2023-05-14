@@ -1,0 +1,68 @@
+
+<app-header></app-header>
+<!-- hero area -->
+<div class="hero-area hero-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 offset-lg-2 text-center">
+        <div class="hero-text">
+          <div class="hero-text-tablecell">
+            <p class="subtitle">PIdev 4ARCTIC5</p>
+            <div class=" hero-btns">
+
+              <br>
+              <h1>PI Dev</h1>
+              <br>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end hero area -->
+
+<!-- features list section -->
+<div class="list-section pt-80 pb-80">
+  <div class="container">
+
+
+
+
+
+
+    <div class="row">
+
+      <!-- Product item HTML goes here -->
+
+      <div class="row">
+        <div *ngFor="let feedback of feedbackValds" class="col-lg-4 col-md-6">
+          <div class="single-product-item text-center">
+            <hr>
+            <h2 class="orange-text">{{ feedback.title}}</h2>
+            <hr>
+
+            <h3><span class="grey-text">Feedback: </span>{{ feedback.feedbackText}}</h3>
+            <h3><span class="grey-text">Rating  : </span>{{ feedback.rating}}</h3>
+
+              <h4><span class="grey-text">Response</span>: {{ feedback.note}}</h4>
+
+            <ng-container *ngIf="feedback.type === 1">
+              <h4><span class="grey-text">Status</span>: Pending </h4>
+            </ng-container>
+
+            <br>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+</div>

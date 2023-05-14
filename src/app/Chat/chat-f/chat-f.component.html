@@ -1,0 +1,81 @@
+
+
+<app-header></app-header>
+<!-- hero area -->
+<div class="hero-area hero-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 offset-lg-2 text-center">
+        <div class="hero-text">
+          <div class="hero-text-tablecell">
+            <p class="subtitle">PIdev 4ARCTIC5</p>
+            <div class="hero-btns">
+
+              <br>
+              <h1>PI Dev</h1>
+              <br>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end hero area -->
+
+<!-- features list section -->
+<div class="list-section pt-80 pb-80">
+  <div class="container">
+
+
+
+
+
+<div id="chat-page"  #chatPage>
+  <div class="chat-container">
+    <div class="chat-header">
+      <h2>Spring WebSocket Chat </h2>
+    </div>
+    <div class="connecting"#connectingElement>
+      Connecting...
+    </div>
+    <ul id="messageArea">
+      <ng-container *ngFor="let message of messages">
+        <ng-container *ngIf="message.type === 'JOIN'">
+          <li class="event-message">{{ message.content }}</li>
+        </ng-container>
+        <ng-container *ngIf="message.type === 'LEAVE'">
+          <li class="chat-message">{{ message.content }}</li>
+        </ng-container>
+        <ng-container *ngIf="message.type === 'CHAT'">
+          <ng-container *ngIf="message.receiver === 'admin'">
+            <span class="username">{{ 'admin' }}:</span> <li class="chat-message">{{ message.content }}</li>
+          </ng-container>
+          <ng-container *ngIf="message.receiver === null">
+            <span class="username">{{ message.sender }}:</span> <li class="chat-message">{{ message.content }}</li>
+          </ng-container>
+
+
+        </ng-container>
+
+      </ng-container>
+    </ul>
+    <form id="messageForm" name="messageForm" nameForm="messageForm"(ngSubmit)="sendMessage()">
+      <div class="form-group">
+        <div class="input-group clearfix">
+          <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control" #messageInput/>
+          <button type="submit" class="primary">Send</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+
+
+
+  </div>
+</div>

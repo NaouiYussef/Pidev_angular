@@ -1,0 +1,60 @@
+
+
+<app-header></app-header>
+<!-- hero area -->
+<app-product-front (openForm)="openForm()"></app-product-front>
+<div class="hero-area hero-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 offset-lg-2 text-center">
+        <div class="hero-text">
+          <div class="hero-text-tablecell">
+            <p class="subtitle">PIdev 4ARCTIC5</p>
+            <div class="hero-btns">
+
+              <br>
+              <h1>PI Dev</h1>
+              <br>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end hero area -->
+
+<!-- features list section -->
+<div class="list-section pt-80 pb-80">
+  <div class="container">
+    <div class="form-popup" [ngClass]="{'show': displayForm}">
+      <form class="form-container" (ngSubmit)="submitForm()">
+        <h2>Submit Feedback</h2>
+        <label for="title"><b>Title</b></label>
+        <input type="text" placeholder="Enter title" id="title" name="title" [(ngModel)]="feedback.title" required>
+
+
+
+        <label for="feedbackText"><b>Feedback Text</b></label>
+        <textarea placeholder="Enter feedback text" id="feedbackText" name="feedbackText" [(ngModel)]="feedback.feedbackText" required></textarea>
+
+
+
+        <label for="rating"><b>Rating</b></label>
+        <select id="rating" name="rating" [(ngModel)]="feedback.rating" required>
+          <option value="Bad">Bad</option>
+          <option value="Poor">Poor</option>
+          <option value="Fair">Fair</option>
+          <option value="Good">Good</option>
+          <option value="Excellent">Excellent</option>
+        </select>
+
+        <button type="submit" class="btn">Submit</button>
+        <button type="button" class="btn cancel" (click)="closeForm()">Close</button>
+      </form>
+    </div>
+
+
+  </div>
+</div>

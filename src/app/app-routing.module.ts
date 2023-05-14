@@ -45,6 +45,15 @@ import { ViewPostFrontComponent } from './post/view-post-front/view-post-front.c
 import { CartViewComponent } from './cart/cart-view/cart-view.component';
 import { MycartComponent } from './cart/mycart/mycart.component';
 import { ValidationCommandeComponent } from './validation-commande/validation-commande.component';
+import { CommandeFrontComponent } from './commande/commande-front/commande-front.component';
+import { SlaBackComponent } from './sla/sla-back/sla-back.component';
+import { SlaComponent } from './sla/sla.component';
+import { ChatBComponent } from './Chat/chat-b/chat-b.component';
+import { FeedbackBComponent } from './Feedback/feedback-b/feedback-b.component';
+import { FeedbackBackVComponent } from './Feedback/feedback-back-v/feedback-back-v.component';
+import { ChatFComponent } from './Chat/chat-f/chat-f.component';
+import { FeedbackFComponent } from './Feedback/feedback-f/feedback-f.component';
+import { FeedbackUsComponent } from './Feedback/feedback-us/feedback-us.component';
 
 const routes: Routes =  [
 {  path:'admin',
@@ -72,7 +81,12 @@ const routes: Routes =  [
     { path: 'create-comment', component: CreateCommentComponent},
     { path: 'rolelist', component:ViewRolesComponent},
     { path: 'createRole', component:RoleComponent},
-    { path: 'app-commande', component:CommandeComponent}
+    { path: 'app-commande', component:CommandeComponent},
+    { path: 'sla', component: SlaBackComponent},
+    { path: 'chatb', component:ChatBComponent},
+    { path: 'feedbackb', component:FeedbackBComponent},
+    { path: 'feedbackb/feedbackbV/:id', component:FeedbackBackVComponent}
+
 
   ],data:{}
 
@@ -98,8 +112,12 @@ const routes: Routes =  [
     { path: 'view-post-front/:id', component: ViewPostFrontComponent },
     { path: 'app-product-front/view-cart', component: MycartComponent},
     { path:'view-my-cart', component:CartViewComponent},
-    { path: 'validation/:id', component:ValidationCommandeComponent}
-
+    { path: 'create-sla', component: SlaComponent},
+    { path: 'validation/:id', component:ValidationCommandeComponent},
+    { path: 'listeProduit/:id', component:CommandeFrontComponent},
+    { path: 'chatf', component:ChatFComponent},
+    { path: 'feedbackf/:id', component:FeedbackFComponent},
+    { path: 'feedbackUs', component:FeedbackUsComponent}
 
   ]
 }

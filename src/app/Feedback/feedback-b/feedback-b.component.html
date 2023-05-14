@@ -1,0 +1,21 @@
+<div class="row">
+
+  <div *ngFor="let feedback of feedbacks" class="col-lg-4 col-md-6">
+
+    <div class="single-product-item text-center">
+      <hr>
+      <h2 class="orange-text">{{ feedback.title}}</h2>
+      <hr>
+
+      <h3><span class="grey-text">Feedback: </span>{{ feedback.feedbackText}}</h3>
+      <h3><span class="grey-text">Rating  : </span>{{ feedback.rating}}</h3>
+
+
+      <br>
+      <a  class="file-archive"style="font-size: 11px; padding: 5px; margin-left: 20px;" routerLink="feedbackbV/{{feedback.id}}"(click)="openFormm.emit()"><i class="fas fa-file-archive"></i> Validate Feedback</a>
+
+    </div>
+
+  </div>
+
+</div>

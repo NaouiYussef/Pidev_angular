@@ -70,7 +70,29 @@ import { ViewSubcommentsComponent } from './post/view-subcomments/view-subcommen
 import { CartViewComponent } from './cart/cart-view/cart-view.component';
 import { MycartComponent } from './cart/mycart/mycart.component';
 import { ValidationCommandeComponent } from './validation-commande/validation-commande.component';
+import { CommandeFrontComponent } from './commande/commande-front/commande-front.component';
 
+import {MSAL_INSTANCE, MsalModule, MsalService} from "@azure/msal-angular";
+import {IPublicClientApplication, PublicClientApplication} from "@azure/msal-browser";
+import { SlaComponent } from './sla/sla.component';
+import { SlaBackComponent } from './sla/sla-back/sla-back.component';
+import { ChatFComponent } from './Chat/chat-f/chat-f.component';
+import { ChatBComponent } from './Chat/chat-b/chat-b.component';
+import { FeedbackFComponent } from './Feedback/feedback-f/feedback-f.component';
+import { FeedbackBComponent } from './Feedback/feedback-b/feedback-b.component';
+import { FeedbackUsComponent } from './Feedback/feedback-us/feedback-us.component';
+import { FeedbackBackVComponent } from './Feedback/feedback-back-v/feedback-back-v.component';
+
+ 
+export function MSALInstanceFactory(): IPublicClientApplication {
+  return new PublicClientApplication({
+    auth: {
+      clientId: '566e9ff0-a812-40cc-900c-2de7f0ab4c0e',
+      redirectUri: 'http://localhost:4200',
+      postLogoutRedirectUri: 'http://localhost:4200'
+    }
+  })
+}
 
 @NgModule({
   declarations: [
@@ -127,6 +149,16 @@ import { ValidationCommandeComponent } from './validation-commande/validation-co
          CartViewComponent,
          MycartComponent,
          ValidationCommandeComponent,
+         CommandeFrontComponent,
+         SlaComponent,
+         SlaBackComponent,
+         ChatFComponent,
+         ChatBComponent,
+         FeedbackFComponent,
+         FeedbackBComponent,
+         FeedbackUsComponent,
+         FeedbackBackVComponent,
+     
          
          
   ],
@@ -144,9 +176,16 @@ import { ValidationCommandeComponent } from './validation-commande/validation-co
     ReactiveFormsModule,
     FontAwesomeModule,
     ToastrModule.forRoot(),
-    EditorModule
+    EditorModule,
+    MsalModule
   ],
-  providers: [UserService, RoleService],
+  providers: [UserService, RoleService, MsalService,
+    {
+      provide: MSAL_INSTANCE,
+      useFactory: MSALInstanceFactory
+    },
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
